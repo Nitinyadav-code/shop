@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakshi Khaad Bhandar - Agricultural Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">    <style>
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .language-toggle {
+            transition: all 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #05752d 0%, #16a34a 100%);
+        }
+        .feature-card {
+            transition: all 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: scale(1.05);
+        }        .dark-mode {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        .dark-mode .bg-green-50 {
+            background-color: #0f172a;
+        }
+        .dark-mode .bg-white {
+            background-color: #1e293b;
+        }
+        .dark-mode .bg-green-100 {
+            background-color: #1e293b;
+        }
+        .dark-mode .text-gray-800 {
+            color: #e2e8f0;
+        }
+        .dark-mode .text-gray-600 {
+            color: #cbd5e1;
+        }
+        .dark-mode .text-gray-700 {
+            color: #cbd5e1;
+        }
+        .dark-mode .text-gray-500 {
+            color: #94a3b8;
+        }
+        .dark-mode .shadow-md {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+        }
+        .dark-mode header {
+            background-color: #1e293b;
+            border-bottom: 1px solid #334155;
+        }
+        .dark-mode footer {
+            background-color: #0f172a;
+        }
+        .dark-mode .hero-section {
+            background: linear-gradient(135deg, #047857 0%, #059669 100%);
+        }
+        .dark-mode .feature-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        .dark-mode .product-card {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+        }
+        .dark-mode #mobile-menu {
+            background-color: #1e293b;
+            border-top: 1px solid #334155;
+        }
+        .dark-mode .bg-green-100:hover {
+            background-color: #334155;
+        }        .dark-mode .language-toggle:hover,
+        .dark-mode #dark-mode-toggle:hover,
+        .dark-mode #mobile-dark-mode-toggle:hover {
+            background-color: #334155;
+        }
+        .dark-mode .bg-gradient-to-br {
+            background: linear-gradient(to bottom right, #1e293b, #0f172a);
+        }
+        .dark-mode .bg-green-50 {
+            background-color: #1e293b;
+        }
+        .dark-mode .bg-orange-50 {
+            background-color: #1e293b;
+        }
+        .dark-mode .bg-gray-50 {
+            background-color: #1e293b;
+        }
+    </style>
+</head>
+<body class="bg-green-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-3">
+                    <i class="fas fa-seedling text-green-500 text-3xl"></i>
+                    <div>
+                        <h1 class="text-2xl font-bold text-green-600" id="site-title">GreenHarvest Agro</h1>
+                        <p class="text-sm text-gray-500" id="site-subtitle">Your Trusted Partner in Agriculture</p>
+                    </div>
+                </div>                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <button id="language-toggle" class="language-toggle px-4 py-2 rounded-lg font-medium bg-green-100 hover:bg-green-200 text-gray-800">
+                        हिंदी
+                    </button>
+                    <button id="dark-mode-toggle" class="p-2 rounded-lg bg-green-100 hover:bg-green-200 text-gray-800">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-green-100 text-green-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden mt-4 pb-4 space-y-3 hidden">
+                <button id="mobile-language-toggle" class="w-full px-4 py-2 rounded-lg font-medium bg-green-100 text-gray-800 text-left">
+                    हिंदी
+                </button>
+                <button id="mobile-dark-mode-toggle" class="w-full px-4 py-2 rounded-lg font-medium bg-green-100 text-gray-800 text-left">
+                    Dark Mode
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-bold mb-6" id="hero-heading">Quality Seeds & Fertilizers for Better Harvest</h2>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto" id="hero-subheading">Premium agricultural products for farmers across the region</p>
+            <button class="px-8 py-4 rounded-lg text-lg font-bold bg-white text-green-600 hover:bg-green-50 transition-colors shadow-lg transform hover:scale-105" id="hero-cta">
+                Shop Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">                <div class="feature-card p-6 rounded-xl text-center bg-white shadow-lg">
+                    <i class="fas fa-leaf mx-auto mb-4 text-green-500 text-4xl"></i>
+                    <h3 class="text-xl font-bold mb-2" id="delivery-title">Fast Delivery</h3>
+                    <p class="text-gray-600" id="delivery-desc">Quick delivery to your doorstep</p>
+                </div>
+                <div class="feature-card p-6 rounded-xl text-center bg-white shadow-lg">
+                    <i class="fas fa-shield-alt mx-auto mb-4 text-green-500 text-4xl"></i>
+                    <h3 class="text-xl font-bold mb-2" id="quality-title">Premium Quality</h3>
+                    <p class="text-gray-600" id="quality-desc">100% genuine products guaranteed</p>
+                </div>
+                <div class="feature-card p-6 rounded-xl text-center bg-white shadow-lg">
+                    <i class="fas fa-phone mx-auto mb-4 text-green-500 text-4xl"></i>
+                    <h3 class="text-xl font-bold mb-2" id="support-title">24/7 Support</h3>
+                    <p class="text-gray-600" id="support-desc">Expert advice and support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" id="products-title">Our Products</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Seeds Card -->
+                <div class="product-card p-6 rounded-xl bg-white shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-seedling text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800" id="seeds-title">Quality Seeds</h3>
+                    <p class="text-gray-600" id="seeds-desc">High-yield hybrid seeds for all seasons</p>
+                </div>
+
+                <!-- Fertilizers Card -->
+                <div class="product-card p-6 rounded-xl bg-white shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-leaf text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800" id="fertilizers-title">Fertilizers</h3>
+                    <p class="text-gray-600" id="fertilizers-desc">Organic and chemical fertilizers</p>
+                </div>
+
+                <!-- Tools Card -->
+                <div class="product-card p-6 rounded-xl bg-white shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-tools text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800" id="tools-title">Tools & Equipment</h3>
+                    <p class="text-gray-600" id="tools-desc">Modern farming equipment</p>
+                </div>
+
+                <!-- Pesticides Card -->
+                <div class="product-card p-6 rounded-xl bg-white shadow-lg transition-all duration-300">
+                    <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-shield-virus text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2 text-gray-800" id="pesticides-title">Pesticides</h3>
+                    <p class="text-gray-600" id="pesticides-desc">Safe and effective crop protection</p>
+                </div>
+            </div>
+        </div>    </section>
+
+    <!-- Shop Hours Section -->
+    <section class="py-16 bg-gradient-to-br from-green-50 to-green-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-green-500 rounded-full mb-4">
+                    <i class="fas fa-clock text-white text-2xl"></i>
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" id="hours-section-title">Shop Opening Hours</h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto" id="hours-section-subtitle">Visit us during these convenient hours. We're here to serve you with the best agricultural products!</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 p-6 text-center">
+                        <h3 class="text-2xl font-bold text-white" id="weekly-hours-title">Weekly Schedule</h3>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- Weekdays -->
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-calendar-week text-green-500 mr-2"></i>
+                                    <span id="weekdays-label">Weekdays</span>
+                                </h4>
+                                
+                                <!-- Monday to Friday -->
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="monday-label">Monday</span>
+                                        </div>
+                                        <span class="font-bold text-green-600">7:00 AM - 7:00 PM</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="tuesday-label">Tuesday</span>
+                                        </div>
+                                        <span class="font-bold text-green-600">7:00 AM - 7:00 PM</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="wednesday-label">Wednesday</span>
+                                        </div>
+                                        <span class="font-bold text-green-600">7:00 AM - 7:00 PM</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="thursday-label">Thursday</span>
+                                        </div>
+                                        <span class="font-bold text-green-600">7:00 AM - 7:00 PM</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="friday-label">Friday</span>
+                                        </div>
+                                        <span class="font-bold text-green-600">7:00 AM - 7:00 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Weekend -->
+                            <div class="space-y-4">
+                                <h4 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                                    <i class="fas fa-calendar-day text-green-500 mr-2"></i>
+                                    <span id="weekend-label">Weekend</span>
+                                </h4>
+                                
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="saturday-label">Saturday</span>
+                                        </div>
+                                        <span class="font-bold text-green-600">7:00 AM - 7:00 PM</span>
+                                    </div>
+                                    
+                                    <div class="flex items-center justify-between p-4 bg-orange-50 rounded-lg hover:bg-orange-100 transition-colors border-l-4 border-orange-400">
+                                        <div class="flex items-center">
+                                            <div class="w-3 h-3 bg-orange-400 rounded-full mr-3"></div>
+                                            <span class="font-medium text-gray-700" id="sunday-label">Sunday</span>
+                                        </div>
+                                        <span class="font-bold text-orange-600">8:00 AM - 6:00 PM</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Current Status -->
+                                <div class="mt-6 p-4 bg-gradient-to-r from-green-500 to-green-600 rounded-lg text-center">
+                                    <div class="flex items-center justify-center mb-2">
+                                        <div class="w-3 h-3 bg-green-200 rounded-full animate-pulse mr-2"></div>
+                                        <span class="text-white font-semibold" id="status-label">Currently Open</span>
+                                    </div>
+                                    <p class="text-green-100 text-sm" id="status-message">We're here to help you!</p>
+                                </div>                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-16 bg-green-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12" id="contact-title">Contact Us</h2>              <!-- Contact Info -->
+            <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 mb-12">
+                <div class="text-center">
+                    <i class="fas fa-map-marker-alt mx-auto mb-4 text-green-500 text-3xl"></i>
+                    <h3 class="text-xl font-bold mb-2" id="address-title">Address</h3>
+                    <p class="text-gray-700" id="address-desc">Ghiror Road, Vishunpur, Uttar Pradesh 205265</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-phone mx-auto mb-4 text-green-500 text-3xl"></i>
+                    <h3 class="text-xl font-bold mb-2" id="phone-title">Phone</h3>
+                    <p class="text-gray-700" id="phone-desc">+91 98765 43210</p>
+                </div>
+                <div class="text-center">
+                    <i class="fas fa-envelope mx-auto mb-4 text-green-500 text-3xl"></i>
+                    <h3 class="text-xl font-bold mb-2" id="email-title">Email</h3>
+                    <p class="text-gray-700" id="email-desc">info@SakshiKhaadbhnadar.com</p>
+                </div>
+            </div><!-- Map Section -->
+            <div class="max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-center mb-6" id="map-title">Find Us on Map</h3>
+                <div class="bg-white rounded-lg shadow-lg p-4">                    <div class="w-full h-96 rounded-lg overflow-hidden" id="map-container">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3406.0261313331002!2d78.94332754378246!3d27.37675094590032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3975a30018957455%3A0xfa16fb190c5f0b02!2z4KS44KS-4KSV4KWN4KS34KWAIOCkluCkvuCkpiDgpK3gpILgpKHgpL7gpLA!5e1!3m2!1sen!2sin!4v1753411745425!5m2!1sen!2sin"
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+                    <div class="mt-4 text-center">
+                        <a href="https://maps.app.goo.gl/PGvJcfMrXjr9tvnr7" 
+                           target="_blank" 
+                           class="inline-flex items-center px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg font-medium transition-colors">
+                            <i class="fas fa-external-link-alt mr-2"></i>
+                            <span id="open-maps-text">Open in Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-800 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <p id="footer-text">© 2024 GreenHarvest Agro. All rights reserved.</p>
+        </div>
+    </footer>    <script>
+        // Language toggle functionality
+        let currentLanguage = 'hi';
+          const translations = {
+            en: {
+                siteTitle: "Sakshi Khaad Bhandar",
+                siteSubtitle: "Your Trusted Partner in Agriculture",
+                heroHeading: "Quality Seeds & Fertilizers for Better Harvest",
+                heroSubheading: "Premium agricultural products for farmers across the region",
+                heroCta: "Shop Now",                deliveryTitle: "Fresh Products",
+                deliveryDesc: "Always fresh and high-quality agricultural products",
+                qualityTitle: "Premium Quality",
+                qualityDesc: "100% genuine products guaranteed",
+                supportTitle: "24/7 Support",
+                supportDesc: "Expert advice and support",
+                productsTitle: "Our Products",
+                seedsTitle: "Quality Seeds",
+                seedsDesc: "High-yield hybrid seeds for all seasons",
+                fertilizersTitle: "Fertilizers",
+                fertilizersDesc: "Organic and chemical fertilizers",
+                toolsTitle: "Tools & Equipment",
+                toolsDesc: "Modern farming equipment",
+                pesticidesTitle: "Pesticides",
+                pesticidesDesc: "Safe and effective crop protection",                contactTitle: "Contact Us",
+                mapTitle: "Find Us on Map",
+                openMapsText: "Open in Google Maps",
+                addressTitle: "Address",
+                addressDesc: "Ghiror Road, Vishunpur, Uttar Pradesh 205265",                phoneTitle: "Phone",
+                phoneDesc: "+91 98765 43210",                emailTitle: "Email",
+                emailDesc: "info@SakshiKhaadbhnadar.com",
+                hoursTitle: "Shop Hours",
+                hoursSection: "Shop Opening Hours",
+                hoursSectionSubtitle: "Visit us during these convenient hours. We're here to serve you with the best agricultural products!",
+                weeklyHours: "Weekly Schedule",
+                weekdaysLabel: "Weekdays",                weekendLabel: "Weekend",
+                statusLabel: "Currently Open",
+                statusMessage: "We're here to help you!",
+                mondayLabel: "Monday",
+                tuesdayLabel: "Tuesday",
+                wednesdayLabel: "Wednesday",
+                thursdayLabel: "Thursday",
+                fridayLabel: "Friday",
+                saturdayLabel: "Saturday",                sundayLabel: "Sunday",footerText: "© 2024 Sakshi Khaad Bhandar. All rights reserved.",
+                darkModeText: "Dark Mode",
+                lightModeText: "Light Mode",
+                languageToggle: "हिंदी"
+            },            hi: {
+                siteTitle: "साक्षी खाद भंडार",
+                siteSubtitle: "आपका कृषि में विश्वसनीय साथी",
+                heroHeading: "बेहतर फसल के लिए गुणवत्ता वाले बीज और उर्वरक",
+                heroSubheading: "क्षेत्र के सभी किसानों के लिए प्रीमियम कृषि उत्पाद",
+                heroCta: "अभी खरीदें",                deliveryTitle: "ताजा उत्पाद",
+                deliveryDesc: "हमेशा ताजा और उच्च गुणवत्ता वाले कृषि उत्पाद",
+                qualityTitle: "प्रीमियम गुणवत्ता",
+                qualityDesc: "100% वास्तविक उत्पादों की गारंटी",
+                supportTitle: "24/7 सहायता",
+                supportDesc: "विशेषज्ञ सलाह और सहायता",
+                productsTitle: "हमारे उत्पाद",
+                seedsTitle: "गुणवत्ता वाले बीज",
+                seedsDesc: "सभी मौसमों के लिए उच्च उपज वाले हाइब्रिड बीज",
+                fertilizersTitle: "उर्वरक",
+                fertilizersDesc: "जैविक और रासायनिक उर्वरक",
+                toolsTitle: "औज़ार और उपकरण",
+                toolsDesc: "आधुनिक कृषि उपकरण",
+                pesticidesTitle: "कीटनाशक",
+                pesticidesDesc: "सुरक्षित और प्रभावी फसल सुरक्षा",                contactTitle: "हमसे संपर्क करें",
+                mapTitle: "नक्शे पर हमारा स्थान",
+                openMapsText: "गूगल मैप्स में खोलें",
+                addressTitle: "पता",
+                addressDesc: "घिरोर रोड, विशुनपुर, उत्तर प्रदेश 205265",                phoneTitle: "फोन",
+                phoneDesc: "+91 98765 43210",                emailTitle: "ईमेल",
+                emailDesc: "info@SakshiKhaadbhnadar.com",
+                hoursTitle: "दुकान का समय", 
+                hoursSection: "दुकान खुलने का समय",
+                hoursSectionSubtitle: "इन सुविधाजनक समयों में हमसे मिलें। हम आपको बेहतरीन कृषि उत्पाद प्रदान करने के लिए यहाँ हैं!",
+                weeklyHours: "साप्ताहिक कार्यक्रम",
+                weekdaysLabel: "सप्ताह के दिन",                weekendLabel: "सप्ताहांत",
+                statusLabel: "वर्तमान में खुला",
+                statusMessage: "हम आपकी सहायता के लिए यहाँ हैं!",
+                mondayLabel: "सोमवार",
+                tuesdayLabel: "मंगलवार", 
+                wednesdayLabel: "बुधवार",
+                thursdayLabel: "गुरुवार",
+                fridayLabel: "शुक्रवार",
+                saturdayLabel: "शनिवार",                sundayLabel: "रविवार",footerText: "© 2024 साक्षी खाद भंडार। सर्वाधिकार सुरक्षित।",
+                darkModeText: "डार्क मोड",
+                lightModeText: "लाइट मोड",
+                languageToggle: "English"
+            }
+        };
+
+        function updateLanguage() {
+            const t = translations[currentLanguage];
+            
+            // Update all text elements
+            document.getElementById('site-title').textContent = t.siteTitle;
+            document.getElementById('site-subtitle').textContent = t.siteSubtitle;
+            document.getElementById('hero-heading').textContent = t.heroHeading;
+            document.getElementById('hero-subheading').textContent = t.heroSubheading;
+            document.getElementById('hero-cta').textContent = t.heroCta;
+            document.getElementById('delivery-title').textContent = t.deliveryTitle;
+            document.getElementById('delivery-desc').textContent = t.deliveryDesc;
+            document.getElementById('quality-title').textContent = t.qualityTitle;
+            document.getElementById('quality-desc').textContent = t.qualityDesc;
+            document.getElementById('support-title').textContent = t.supportTitle;
+            document.getElementById('support-desc').textContent = t.supportDesc;
+            document.getElementById('products-title').textContent = t.productsTitle;
+            document.getElementById('seeds-title').textContent = t.seedsTitle;
+            document.getElementById('seeds-desc').textContent = t.seedsDesc;
+            document.getElementById('fertilizers-title').textContent = t.fertilizersTitle;
+            document.getElementById('fertilizers-desc').textContent = t.fertilizersDesc;
+            document.getElementById('tools-title').textContent = t.toolsTitle;
+            document.getElementById('tools-desc').textContent = t.toolsDesc;
+            document.getElementById('pesticides-title').textContent = t.pesticidesTitle;
+            document.getElementById('pesticides-desc').textContent = t.pesticidesDesc;            document.getElementById('contact-title').textContent = t.contactTitle;
+            document.getElementById('map-title').textContent = t.mapTitle;
+            document.getElementById('open-maps-text').textContent = t.openMapsText;
+            document.getElementById('address-title').textContent = t.addressTitle;
+            document.getElementById('address-desc').textContent = t.addressDesc;
+            document.getElementById('phone-title').textContent = t.phoneTitle;            document.getElementById('phone-desc').textContent = t.phoneDesc;
+            document.getElementById('email-title').textContent = t.emailTitle;
+            document.getElementById('email-desc').textContent = t.emailDesc;
+            
+            // Update shop hours section
+            document.getElementById('hours-section-title').textContent = t.hoursSection;
+            document.getElementById('hours-section-subtitle').textContent = t.hoursSectionSubtitle;
+            document.getElementById('weekly-hours-title').textContent = t.weeklyHours;
+            document.getElementById('weekdays-label').textContent = t.weekdaysLabel;            document.getElementById('weekend-label').textContent = t.weekendLabel;
+            document.getElementById('status-label').textContent = t.statusLabel;
+            document.getElementById('status-message').textContent = t.statusMessage;
+            
+            // Update day labels
+            document.getElementById('monday-label').textContent = t.mondayLabel;
+            document.getElementById('tuesday-label').textContent = t.tuesdayLabel;
+            document.getElementById('wednesday-label').textContent = t.wednesdayLabel;
+            document.getElementById('thursday-label').textContent = t.thursdayLabel;
+            document.getElementById('friday-label').textContent = t.fridayLabel;
+            document.getElementById('saturday-label').textContent = t.saturdayLabel;            document.getElementById('sunday-label').textContent = t.sundayLabel;document.getElementById('footer-text').textContent = t.footerText;
+            
+            // Update dark mode text
+            const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
+            mobileDarkModeToggle.textContent = darkMode ? t.lightModeText : t.darkModeText;
+            
+            // Update language toggle buttons
+            const toggleText = currentLanguage === 'en' ? translations.hi.languageToggle : translations.en.languageToggle;
+            document.getElementById('language-toggle').textContent = toggleText;
+            document.getElementById('mobile-language-toggle').textContent = toggleText;
+        }
+
+        // Toggle language
+        document.getElementById('language-toggle').addEventListener('click', function() {
+            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+            updateLanguage();
+        });
+
+        document.getElementById('mobile-language-toggle').addEventListener('click', function() {
+            currentLanguage = currentLanguage === 'en' ? 'hi' : 'en';
+            updateLanguage();
+        });        // Dark mode toggle with persistence
+        let darkMode = localStorage.getItem('darkMode') === 'true' || false;
+          function applyDarkMode(isDark) {
+            const body = document.body;
+            const darkModeToggle = document.getElementById('dark-mode-toggle');
+            const mobileDarkModeToggle = document.getElementById('mobile-dark-mode-toggle');
+            const t = translations[currentLanguage];
+            
+            if (isDark) {
+                body.classList.add('dark-mode');
+                darkModeToggle.querySelector('i').className = 'fas fa-sun';
+                mobileDarkModeToggle.textContent = t.lightModeText;
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                body.classList.remove('dark-mode');
+                darkModeToggle.querySelector('i').className = 'fas fa-moon';
+                mobileDarkModeToggle.textContent = t.darkModeText;
+                localStorage.setItem('darkMode', 'false');
+            }
+        }
+        
+        // Apply dark mode on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            applyDarkMode(darkMode);
+        });
+        
+        document.getElementById('dark-mode-toggle').addEventListener('click', function() {
+            darkMode = !darkMode;
+            applyDarkMode(darkMode);
+        });
+
+        document.getElementById('mobile-dark-mode-toggle').addEventListener('click', function() {
+            darkMode = !darkMode;
+            applyDarkMode(darkMode);
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            const icon = this.querySelector('i');
+            icon.className = menu.classList.contains('hidden') ? 'fas fa-bars' : 'fas fa-times';
+        });
+
+        // Initialize with English
+        updateLanguage();
+    </script>
+</body>
+</html>
